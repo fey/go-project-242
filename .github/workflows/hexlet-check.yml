@@ -22,3 +22,4 @@ jobs:
         uses: hexlet/project-action@update-deps-2026-03-11
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
+          verbose: true
