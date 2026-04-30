@@ -4,7 +4,6 @@ import (
 	"code"
 	"context"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/urfave/cli/v3"
@@ -13,44 +12,28 @@ import (
 func main() {
 	cmd := &cli.Command{
 		Name:  "hexlet-path-size",
-		Usage: "print size of a file or directory; supports -r (recursive), -H (human-readable), -a (include hidden)\n",
+		Usage: "print size of a file or directory; supports -r (recursive), -H (human-readable), -a (include hidden)",
+		UsageText: "hexlet-path-size [options] <path>",
 		Flags: []cli.Flag{
-			&cli.BoolFlag{
-				Name:    "human",
-				Aliases: []string{"H"},
-				Value:   false,
-				Usage:   "human-readable sizes (auto-select unit) (default: false)",
-			},
-			&cli.BoolFlag{
-				Name:    "all",
-				Aliases: []string{"a"},
-				Value:   false,
-				Usage:   "include hidden files and directories (default: false)",
-			},
-			&cli.BoolFlag{
-				Name:    "recursive",
-				Aliases: []string{"r"},
-				Value:   false,
-				Usage:   "recursive size of directories (default: false)",
-			},
+			&cli.BoolFlag{Name: "recursive", Aliases: []string{"r"}, Usage: "recursive size of directories"},
+			&cli.BoolFlag{Name: "human", Aliases: []string{"H"}, Usage: "human-readable sizes (auto-select unit)"},
+			&cli.BoolFlag{Name: "all", Aliases: []string{"a"}, Usage: "include hidden files and directories"},
 		},
-		Action: func(ctx context.Context, cmd *cli.Command) error {
-			path := cmd.Args().Get(0)
-			res, err := code.GetPathSize(
-				path,
-				cmd.Bool("human"),
-				cmd.Bool("all"),
-				cmd.Bool("recursive"),
-			)
-			if err != nil {
-				return err
+		Action: func(ctx context.Context, c *cli.Command) error {
+			if c.NArg() != 1 {
+				_ = cli.ShowAppHelp(c)
+				return cli.Exit("", 1)
 			}
-			fmt.Printf("%s\t%s\n", res, path)
+			path := c.Args().Get(0)
+			disp, err := code.GetPathSize(path, c.Bool("recursive"), c.Bool("human"), c.Bool("all"))
+			if err != nil {
+				return cli.Exit(err.Error(), 1)
+			}
+			fmt.Printf("%s\t%s\n", disp, path)
 			return nil
 		},
 	}
-
 	if err := cmd.Run(context.Background(), os.Args); err != nil {
-		log.Fatal(err)
+		os.Exit(1)
 	}
 }

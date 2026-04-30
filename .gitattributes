@@ -1,3 +1,0 @@
-*.txt text eol=lf
-testdata/* text eol=lf
-*.go text eol=lf

@@ -1,8 +1,14 @@
-build: # Сборка бинарника
-	go build -o bin/hexlet-path-size ./cmd/hexlet-path-size;
-lint: # Прогон линтера
-	golangci-lint run
-lint-fix: # Автоматическое исправление замечаний линтера
-	golangci-lint run --fix
-test: # Запуск тестов
-	go test ./...
+.PHONY: install test
+
+install:
+	go mod tidy
+
+build:
+	go build -o bin/hexlet-path-size ./cmd/hexlet-path-size
+
+update-deps:
+	go get -u ./...
+	go mod tidy
+
+test:
+	go test -v ./...
