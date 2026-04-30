@@ -1,6 +1,6 @@
 ## Overview
 
-hexlet-path-size is a CLI utility to calculate the size of files or directories. It supports recursive size calculation, human-readable formats, and inclusion of hidden files.
+hexlet-path-size is a CLI utility to calculate the size of files or directories. It supports recursive size calculation, human-readable formats, and inclusion of hidden files.111
 
 ## Features
 
