@@ -1,55 +1,32 @@
-## Overview
+### Hexlet tests and linter status:
+[![Actions Status](https://github.com/PaulKuznetsov3/go-project-244/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/PaulKuznetsov3/go-project-244/actions)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=PaulKuznetsov3_go-project-244&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=PaulKuznetsov3_go-project-244)
 
-hexlet-path-size is a CLI utility to calculate the size of files or directories. It supports recursive size calculation, human-readable formats, and inclusion of hidden files.111
+# Difference Calculator
 
-## Features
+Difference Calculator is a program that determines the difference between two data structures.
+Utility Features:
+  - Support for different input formats: yaml, json
+  - Generating a report in the form of plain text, stylish and json
 
-- **Recursive Size Calculation**: Calculate the size of all nested files and directories.
-- **Human-Readable Format**: Display sizes in KB, MB, GB, etc.
-- **Include Hidden Files**: Optionally include hidden files and directories.
+## system requirements: 
+go version go1.26 linux/amd64
 
-## Usage
+## Install:
+  - clone a repository git@github.com:PaulKuznetsov3/go-project-244.git
 
-### Basic Usage
 
-```bash
-hexlet-path-size <path>
-```
+### comparing flat files .yaml
+[![asciicast](https://asciinema.org/a/0EzWqQFSxFhOboEs.svg)](https://asciinema.org/a/0EzWqQFSxFhOboEs)
 
-### Options
+### comparing flat files .json
+[![asciicast](https://asciinema.org/a/LyuqwQF9gNVei7bs.svg)](https://asciinema.org/a/LyuqwQF9gNVei7bs)
 
-- `--recursive`, `-r`: Calculate size recursively for directories.
-- `--human`, `-H`: Display size in human-readable format.
-- `--all`, `-a`: Include hidden files and directories.
+### output in the format stylish
+[![asciicast](https://asciinema.org/a/NhA756mB9eSrxT9Z.svg)](https://asciinema.org/a/NhA756mB9eSrxT9Z)
 
-### Examples
+### output in the format plain
+[![asciicast](https://asciinema.org/a/YsqOgm3CBrC871Op.svg)](https://asciinema.org/a/YsqOgm3CBrC871Op)
 
-```bash
-hexlet-path-size /path/to/directory
-hexlet-path-size /path/to/directory --recursive
-hexlet-path-size /path/to/directory --human
-hexlet-path-size /path/to/directory --recursive --all
-```
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone <repository_url>
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd hexlet-path-size
-   ```
-3. Build the project:
-   ```bash
-   go build -o bin/hexlet-path-size main.go
-   ```
-
-## Testing
-
-Run tests using:
-
-```bash
-make test
-```
+### output in the format json
+[![asciicast](https://asciinema.org/a/9LwVKWoUeR2zPbD3.svg)](https://asciinema.org/a/9LwVKWoUeR2zPbD3)

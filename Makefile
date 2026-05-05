@@ -1,14 +1,10 @@
-.PHONY: install test
+build: 
+	go build -o bin/gendiff ./cmd/gendiff
+lint:
+	golangci-lint run
 
-install:
-	go mod tidy
-
-build:
-	go build -o bin/hexlet-path-size ./cmd/hexlet-path-size
-
-update-deps:
-	go get -u ./...
-	go mod tidy
+lint-fix:
+	golangci-lint run --fix
 
 test:
-	go test -v ./...
+	go test

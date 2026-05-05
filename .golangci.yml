@@ -1,0 +1,19 @@
+# .golangci.yml
+version: "2"
+
+run:
+  timeout: 5m
+  tests: true
+
+linters:
+  default: standard
+  enable:
+    - govet          
+    - staticcheck    
+    - errcheck      
+    - revive         
+    - gocritic      
+formatters:
+  enable:
+    - gofmt        
+    - goimports
